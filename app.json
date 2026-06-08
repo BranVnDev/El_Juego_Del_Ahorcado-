@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Ahorcado",
+    "slug": "ahorcado",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#000",
+      "resizeMode": "contain",
+      "image": "./assets/icon.png"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ahorcado.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#000"
+      },
+      "package": "com.ahorcado.app"
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-font",
+      "expo-camera",
+      "expo-splash-screen"
+    ]
+  }
+}
