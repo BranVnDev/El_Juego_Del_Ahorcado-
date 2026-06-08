@@ -1,273 +1,410 @@
-# El_Juego_Del_Ahorcado-
+# El Juego Del Ahorcado
 
-Aplicacion movil del juego del ahorcado desarrollada con Expo y React Native.
+Aplicacion movil del juego del ahorcado desarrollada con **Expo** y **React Native**. El juego permite jugar de forma individual, local con dos jugadores y en modo online mediante conexion a un servidor.
 
-## Documentacion del Juego del Ahorcado
+## Descripcion
 
-### Portada
+El objetivo del juego es adivinar una palabra oculta seleccionando letras del teclado. Cada letra incorrecta resta vidas y avanza el dibujo del ahorcado. El jugador gana si completa la palabra antes de quedarse sin vidas.
 
-**Nombre del proyecto:** Juego del Ahorcado  
-**Tipo de aplicacion:** Aplicacion movil interactiva  
-**Materia:** Desarrollo de aplicaciones / Programacion  
-**Alumno:** ______________________________  
-**Docente:** ______________________________  
-**Grupo:** ______________________________  
-**Fecha:** ______________________________  
+La aplicacion incluye pantallas de inicio, carga, juego, espera online, historial, resultados y mensajes de error. Tambien cuenta con sistema de rondas, puntuacion, turnos, muerte subita e historial de partidas.
 
-## Contenido
+## Tecnologias utilizadas
 
-### Introduccion
+- React Native
+- Expo
+- JavaScript
+- React Navigation
+- AsyncStorage
+- Expo Camera
+- Expo Blur
+- Socket.IO Client
 
-El presente documento describe el funcionamiento de la aplicacion movil **Juego del Ahorcado**, desarrollada como un juego interactivo donde el usuario debe adivinar una palabra antes de quedarse sin vidas. La aplicacion permite jugar en diferentes modalidades, mostrando una interfaz sencilla, visual y facil de usar.
+## Requisitos para instalar
 
-El objetivo principal del juego es que el jugador seleccione letras para descubrir una palabra oculta. Cada error aumenta el avance del dibujo del ahorcado y reduce las vidas disponibles. Si el jugador completa la palabra antes de perder todas sus vidas, gana la ronda.
+Antes de ejecutar el proyecto se necesita tener instalado:
 
-### Descripcion general de la aplicacion
+- Node.js
+- npm
+- Git
+- Expo CLI o usar `npx expo`
+- Expo Go en el celular, si se desea probar en dispositivo fisico
+- Android Studio, si se desea probar en emulador Android
 
-La aplicacion es un juego basado en el clasico **Ahorcado**. El jugador observa una palabra oculta representada por guiones bajos y debe seleccionar letras del abecedario para adivinarla.
+## Instalacion
 
-La aplicacion cuenta con diferentes pantallas o vistas que permiten navegar por el juego, iniciar partidas, jugar rondas, ver resultados y consultar el historial.
+Clonar el repositorio:
 
-## Vistas de la Aplicacion
+```bash
+git clone https://github.com/BranVnDev/El_Juego_Del_Ahorcado-.git
+```
 
-### 1. Vista de Inicio
+Entrar a la carpeta del proyecto:
 
-La vista de inicio es la primera pantalla que aparece al abrir la aplicacion despues de la pantalla de carga. Desde esta vista, el usuario puede elegir el modo de juego que desea utilizar.
+```bash
+cd El_Juego_Del_Ahorcado-
+```
 
-Elementos principales:
+Instalar dependencias:
 
-- Titulo del juego.
-- Botones para seleccionar el modo de juego.
-- Acceso al historial de partidas.
-- Opciones de configuracion o navegacion.
+```bash
+npm install
+```
 
-Funcionamiento:
+Iniciar el proyecto:
 
-El usuario selecciona una opcion del menu principal. Dependiendo del boton presionado, la aplicacion lo lleva a la pantalla correspondiente, como una partida local, individual u online.
+```bash
+npm start
+```
 
-### 2. Vista de Carga o Splash Screen
+Tambien se puede iniciar limpiando cache:
 
-Esta vista aparece al iniciar la aplicacion. Su funcion es mostrar una pantalla inicial mientras la app termina de cargar los recursos necesarios.
+```bash
+npx expo start --clear
+```
 
-Elementos principales:
+## Comandos disponibles
 
-- Nombre o logo del juego.
-- Animacion o diseno visual de presentacion.
+Iniciar Expo:
 
-Funcionamiento:
+```bash
+npm start
+```
 
-Despues de unos segundos, la aplicacion cambia automaticamente a la vista de inicio. Esta pantalla ayuda a que el inicio de la app sea mas ordenado y visual.
+Ejecutar en Android:
 
-### 3. Vista de Juego Local
+```bash
+npm run android
+```
 
-En esta vista se desarrolla una partida entre dos jugadores usando el mismo dispositivo.
+Ejecutar en iOS:
 
-Elementos principales:
+```bash
+npm run ios
+```
+
+Ejecutar en navegador web:
+
+```bash
+npm run web
+```
+
+Limpiar cache de Expo:
+
+```bash
+npx expo start --clear
+```
+
+Generar una exportacion de prueba para Android:
+
+```bash
+npx expo export --platform android --clear
+```
+
+## Como usar la aplicacion
+
+1. Abrir la aplicacion.
+2. Esperar a que termine la pantalla de carga.
+3. Elegir un modo de juego desde el inicio.
+4. Seleccionar letras para intentar descubrir la palabra.
+5. Evitar perder todas las vidas.
+6. Revisar el resultado final.
+7. Volver a jugar o regresar al inicio.
+
+## Modos de juego
+
+### Modo individual
+
+Un solo jugador intenta adivinar las palabras generadas por la aplicacion. Es ideal para practicar sin necesidad de otro jugador.
+
+### Modo local
+
+Dos jugadores usan el mismo dispositivo. El juego maneja turnos, rondas y puntuacion entre jugador 1 y jugador 2.
+
+### Modo online
+
+Permite jugar contra otro jugador mediante conexion a un servidor. El usuario puede crear una sala o unirse a una sala existente usando una IP y un codigo de sala.
+
+## Vistas o pantallas del juego
+
+### 1. Pantalla de carga
+
+Se muestra al iniciar la aplicacion. Sirve como presentacion inicial mientras se cargan los recursos necesarios.
+
+### 2. Pantalla de inicio
+
+Es el menu principal. Desde aqui el usuario puede elegir el modo de juego, entrar al historial o navegar a otras opciones.
+
+### 3. Pantalla de juego
+
+Es la pantalla principal del juego. Muestra:
 
 - Palabra oculta.
+- Letras seleccionables.
 - Dibujo del ahorcado.
-- Teclado con letras.
-- Marcador de jugadores.
-- Numero de ronda.
 - Vidas restantes.
-- Turno del jugador actual.
+- Ronda actual.
+- Marcador.
+- Turno actual.
 - Boton para salir.
 
-Funcionamiento:
+### 4. Pantalla de juego individual
 
-Cada jugador toma turnos para elegir letras. Si la letra esta dentro de la palabra, se muestra en su posicion correspondiente. Si la letra no pertenece a la palabra, se descuenta una vida y avanza el dibujo del ahorcado.
+Muestra la palabra actual, el teclado y las vidas del jugador. Si el jugador adivina la palabra, avanza a la siguiente. Si falla demasiadas veces, termina la partida.
 
-El juego cuenta con varias rondas. Al finalizar cada ronda, se actualiza el marcador. El jugador con mayor puntuacion al final gana la partida.
+### 5. Pantalla de juego local
 
-### 4. Vista de Juego Individual
+Muestra los turnos de ambos jugadores, el marcador y la ronda actual. Cada jugador selecciona letras por turnos.
 
-En esta modalidad, un solo jugador intenta adivinar las palabras propuestas por la aplicacion.
+### 6. Pantalla de juego online
 
-Elementos principales:
+Permite ingresar la IP del servidor, crear una sala o unirse a una sala existente. Tambien permite escanear datos de sala si se usa la camara.
 
-- Palabra oculta.
-- Letras disponibles.
-- Vidas restantes.
-- Dibujo del ahorcado.
-- Numero de palabra o ronda.
-- Resultado final.
+### 7. Pantalla de espera online
 
-Funcionamiento:
+Se muestra cuando un jugador crea una sala y espera a que otro jugador se una. Presenta:
 
-El jugador selecciona letras para completar la palabra. Si adivina correctamente, avanza a la siguiente palabra. Si comete demasiados errores y se queda sin vidas, pierde la partida.
-
-Esta modalidad permite practicar y jugar sin necesidad de otro participante.
-
-### 5. Vista de Juego Online
-
-Esta vista permite jugar contra otro jugador mediante conexion a un servidor.
-
-Elementos principales:
-
-- Campo para ingresar la IP del servidor.
-- Boton para crear sala.
-- Campo para ingresar codigo de sala.
-- Boton para unirse a una sala.
-- Opcion para escanear codigo.
-- Mensajes de conexion.
-
-Funcionamiento:
-
-El jugador puede crear una sala o unirse a una sala existente. Para conectarse, debe ingresar la IP del servidor y el codigo de sala correspondiente.
-
-Cuando ambos jugadores estan conectados, la partida inicia. La aplicacion envia y recibe informacion del servidor para actualizar turnos, letras seleccionadas, marcador y estado de la partida.
-
-### 6. Vista de Espera
-
-Esta pantalla aparece cuando un jugador crea una sala online y esta esperando a que otro jugador se una.
-
-Elementos principales:
-
-- Codigo de sala.
 - IP del servidor.
-- Boton para compartir la sala.
+- Codigo de sala.
+- Boton para compartir sala.
 - Mensaje de espera.
 - Numero de jugador.
-- Boton para salir.
 
-Funcionamiento:
+### 8. Pantalla de resultado
 
-Mientras no se conecte otro jugador, la aplicacion permanece en esta vista. El usuario puede compartir los datos de la sala para que otro jugador pueda entrar.
+Aparece cuando termina una partida. Muestra:
 
-Cuando el segundo jugador se conecta, la partida cambia automaticamente a la vista de juego.
-
-### 7. Vista del Teclado
-
-El teclado es una parte importante de la pantalla de juego. Esta formado por las letras del abecedario, incluyendo la letra N.
-
-Elementos principales:
-
-- Botones con letras.
-- Letras disponibles.
-- Letras ya utilizadas.
-
-Funcionamiento:
-
-El usuario toca una letra para hacer un intento. Una vez usada, la letra queda marcada o deshabilitada para evitar que se repita.
-
-Si la letra seleccionada esta en la palabra, se muestra en la posicion correcta. Si no esta, se cuenta como error.
-
-### 8. Vista del Dibujo del Ahorcado
-
-Esta vista muestra graficamente el progreso de los errores del jugador.
-
-Elementos principales:
-
-- Base del ahorcado.
-- Poste.
-- Cuerda.
-- Cabeza.
-- Cuerpo.
-- Brazos.
-- Piernas.
-
-Funcionamiento:
-
-Cada vez que el jugador falla una letra, se agrega una parte del dibujo. Cuando el dibujo se completa, significa que el jugador ha perdido la ronda o la partida.
-
-### 9. Vista de Resultado o Fin de Partida
-
-Esta vista aparece cuando termina una partida o una ronda importante.
-
-Elementos principales:
-
-- Mensaje de victoria o derrota.
+- Si el jugador gano o perdio.
 - Palabra completa.
 - Marcador final.
 - Boton para volver a jugar.
-- Boton para regresar al inicio.
+- Boton para volver al inicio.
 
-Funcionamiento:
+### 9. Pantalla de historial
 
-La aplicacion muestra si el jugador gano o perdio. Tambien muestra la palabra que debia adivinarse y el resultado final. Desde esta pantalla, el usuario puede iniciar otra partida o regresar al menu principal.
+Muestra partidas anteriores guardadas. Incluye fecha, marcador, ganador, palabra y motivo del final de la partida.
 
-### 10. Vista de Historial
+### 10. Pantalla de error
 
-La vista de historial permite consultar partidas anteriores.
+Se muestra cuando ocurre un problema, por ejemplo:
 
-Elementos principales:
+- No se pudo conectar al servidor.
+- Codigo de sala incorrecto.
+- El otro jugador abandono la partida.
+- Error durante la conexion.
 
-- Lista de partidas guardadas.
-- Fecha de la partida.
-- Marcador.
-- Ganador.
-- Palabra jugada.
-- Motivo del final de partida.
+## Reglas del juego
 
-Funcionamiento:
+- El jugador debe adivinar la palabra oculta.
+- Cada letra correcta aparece en su posicion.
+- Cada letra incorrecta resta una vida.
+- Una letra ya usada no debe repetirse.
+- Si la palabra se completa, el jugador gana la ronda.
+- Si se terminan las vidas, el jugador pierde la ronda.
+- En modo de dos jugadores, gana quien tenga mayor puntuacion.
+- Si hay empate al final, se activa muerte subita.
 
-La aplicacion guarda informacion de partidas anteriores, especialmente en los modos locales. El usuario puede revisar los resultados para conocer su desempeno en juegos pasados.
+## Sistema de vidas
 
-### 11. Vista de Error
+El juego usa un limite de **5 vidas**. Cada error resta una vida y agrega una parte al dibujo del ahorcado.
 
-Esta vista aparece cuando ocurre un problema durante el funcionamiento de la aplicacion.
+Partes del dibujo:
 
-Elementos principales:
+- Cabeza.
+- Cuerpo.
+- Brazo izquierdo.
+- Brazo derecho.
+- Pierna izquierda.
+- Pierna derecha.
 
-- Mensaje de error.
-- Boton para cerrar.
-- Aviso visual.
+## Sistema de rondas
 
-Funcionamiento:
+El juego maneja hasta **3 rondas** en las modalidades de competencia. Cada ronda puede sumar puntos para el jugador ganador.
 
-Se muestra cuando la aplicacion no puede conectarse al servidor, cuando el codigo de sala es incorrecto o cuando ocurre algun problema durante la partida.
+## Sistema de puntuacion
 
-El usuario puede cerrar el mensaje e intentar nuevamente.
+Cuando un jugador gana una ronda, recibe un punto. Al terminar las rondas, se comparan los puntos:
 
-## Funcionamiento General del Juego
+- Si jugador 1 tiene mas puntos, gana jugador 1.
+- Si jugador 2 tiene mas puntos, gana jugador 2.
+- Si ambos tienen la misma puntuacion, se activa muerte subita.
 
-### Seleccion de palabra
+## Muerte subita
 
-La aplicacion contiene una lista de palabras relacionadas con tecnologia, como WIFI, MOUSE, VIRUS, ROUTER, TABLET, LAPTOP, MONITOR, INTERNET, SERVIDOR, ANDROID, GOOGLE y BLUETOOTH.
+La muerte subita se activa cuando hay empate. En esta etapa, una jugada puede definir al ganador:
 
-Al iniciar una ronda, el sistema selecciona una palabra aleatoria. Algunas letras pueden aparecer descubiertas desde el inicio para facilitar el juego.
+- Si el jugador acierta, gana.
+- Si el jugador falla, gana el otro jugador.
 
-### Sistema de vidas
+## Palabras del juego
 
-El jugador cuenta con un numero limitado de vidas. Cada vez que selecciona una letra incorrecta, pierde una vida.
+El juego utiliza palabras relacionadas con tecnologia. Algunas de las palabras incluidas son:
 
-Cuando las vidas se terminan, el jugador pierde la ronda o la partida.
+- WIFI
+- MOUSE
+- VIRUS
+- DISCO
+- PIXEL
+- ROUTER
+- TABLET
+- CAMARA
+- LAPTOP
+- MONITOR
+- CELULAR
+- MEMORIA
+- PANTALLA
+- INTERNET
+- SERVIDOR
+- FACEBOOK
+- PYTHON
+- JAVA
+- LINUX
+- WINDOWS
+- ANDROID
+- GOOGLE
+- CHROME
+- BLUETOOTH
+- TOKEN
 
-### Sistema de turnos
+## Letras disponibles
 
-En el modo local y online, los jugadores se turnan para seleccionar letras. El turno cambia despues de cada intento, dependiendo de la logica del juego.
+El teclado del juego incluye el abecedario en mayusculas:
 
-El sistema muestra en pantalla de quien es el turno actual.
+```text
+A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z
+```
 
-### Sistema de puntuacion
+## Estilo visual
 
-Cuando un jugador gana una ronda, recibe un punto. Al final de las rondas, el jugador con mayor puntuacion gana la partida.
+La aplicacion usa un estilo oscuro y minimalista. Los colores principales son:
 
-Si los jugadores empatan, puede activarse una ronda especial de muerte subita.
+- Fondo negro.
+- Texto blanco.
+- Botones con bordes blancos.
+- Acentos verdes para acciones principales.
+- Acentos azules para opciones relacionadas con QR o escaneo.
+- Sombras blancas en el dibujo del ahorcado.
 
-### Muerte subita
+La interfaz utiliza letras mayusculas, espaciado entre caracteres y botones redondeados para dar una apariencia de juego arcade/moderno.
 
-La muerte subita se activa cuando ambos jugadores terminan empatados. En esta fase, una sola respuesta puede definir al ganador.
+## Estructura del proyecto
 
-Si el jugador acierta, gana. Si falla, gana el otro jugador.
+```text
+mobile/
+├── App.js
+├── app.json
+├── package.json
+├── package-lock.json
+├── metro.config.js
+├── babel.config.js
+├── assets/
+├── android/
+├── scripts/
+└── src/
+    ├── components/
+    │   ├── HangmanCanvas.js
+    │   ├── Keyboard.js
+    │   └── FlipClockText.js
+    ├── screens/
+    │   ├── HomeScreen.js
+    │   ├── GameScreen.js
+    │   ├── HistoryScreen.js
+    │   └── SplashScreen.js
+    └── services/
+        └── socket.js
+```
 
-### Guardado de historial
+## Archivos principales
 
-La aplicacion guarda informacion de las partidas jugadas, como la fecha, marcador, ganador, palabra y motivo por el cual termino la partida.
+### App.js
 
-Esto permite consultar partidas anteriores desde la vista de historial.
+Configura la navegacion principal de la aplicacion y muestra la pantalla de carga antes del menu principal.
+
+### src/screens/HomeScreen.js
+
+Contiene la pantalla de inicio y las opciones principales del juego.
+
+### src/screens/GameScreen.js
+
+Contiene la logica principal del juego, las rondas, turnos, vidas, puntuacion, conexion online y resultados.
+
+### src/screens/HistoryScreen.js
+
+Muestra el historial de partidas guardadas.
+
+### src/screens/SplashScreen.js
+
+Muestra la pantalla inicial de carga.
+
+### src/components/HangmanCanvas.js
+
+Dibuja el ahorcado segun la cantidad de errores del jugador.
+
+### src/components/Keyboard.js
+
+Muestra el teclado de letras y controla las letras usadas.
+
+### src/services/socket.js
+
+Maneja la conexion con el servidor para el modo online.
+
+## Dependencias principales
+
+```json
+{
+  "expo": "~54.0.0",
+  "react": "19.1.0",
+  "react-native": "0.81.5",
+  "@react-navigation/native": "^7.0.0",
+  "@react-navigation/native-stack": "^7.0.0",
+  "@react-native-async-storage/async-storage": "^3.1.1",
+  "expo-camera": "~17.0.10",
+  "expo-blur": "~15.0.8",
+  "socket.io-client": "^4.8.1"
+}
+```
+
+## Solucion de errores comunes
+
+### Error de cache de Metro
+
+Ejecutar:
+
+```bash
+npx expo start --clear
+```
+
+### Error con dependencias
+
+Borrar dependencias instaladas e instalar de nuevo:
+
+```bash
+rm -rf node_modules
+npm install
+```
+
+En Windows PowerShell:
+
+```powershell
+Remove-Item -Recurse -Force node_modules
+npm install
+```
+
+### Error al conectar modo online
+
+Verificar:
+
+- Que el servidor este encendido.
+- Que la IP sea correcta.
+- Que ambos dispositivos esten en la misma red.
+- Que el puerto del servidor sea correcto.
+- Que el codigo de sala exista.
+
+## Nota sobre QR
+
+La aplicacion puede compartir los datos de la sala mediante texto. Actualmente se muestran la IP y el codigo de sala para evitar errores de dependencias con generadores de QR en React Native.
 
 ## Conclusion
 
-El Juego del Ahorcado es una aplicacion movil interactiva que permite practicar logica, memoria y reconocimiento de palabras de una forma entretenida. Su funcionamiento se basa en seleccionar letras para descubrir una palabra oculta antes de perder todas las vidas.
+El Juego del Ahorcado es una aplicacion movil interactiva que permite practicar logica, memoria y reconocimiento de palabras de una forma entretenida. Cuenta con modos individual, local y online, ademas de sistema de vidas, rondas, turnos, puntuacion, muerte subita e historial.
 
-La aplicacion cuenta con distintas vistas que organizan el flujo del juego, desde el inicio hasta el resultado final. Ademas, incluye modalidades individual, local y online, lo que permite jugar solo o contra otra persona.
-
-En conclusion, esta aplicacion cumple con el objetivo de ofrecer una experiencia de juego clara, funcional y dinamica, utilizando elementos como turnos, vidas, puntuacion, historial y conexion entre jugadores.
-
-## Como ejecutar el proyecto
-
-```powershell
-npm install
-npm start
-```
+La documentacion anterior permite que otra persona instale, ejecute, entienda y utilice el proyecto correctamente.
