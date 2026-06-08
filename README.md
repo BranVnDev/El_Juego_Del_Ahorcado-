@@ -44,6 +44,12 @@ Entrar a la carpeta del proyecto:
 cd El_Juego_Del_Ahorcado-
 ```
 
+Entrar a la carpeta **mobile**, que es donde esta la aplicacion:
+
+```bash
+cd mobile
+```
+
 Instalar dependencias:
 
 ```bash
@@ -63,6 +69,8 @@ npx expo start --clear
 ```
 
 ## Comandos disponibles
+
+Todos estos comandos se deben ejecutar dentro de la carpeta `mobile`. Si se ejecutan desde otra carpeta, la aplicacion no va a funcionar porque ahi no se encuentra el archivo `package.json`.
 
 Iniciar Expo:
 
